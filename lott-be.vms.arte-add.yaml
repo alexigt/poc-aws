@@ -1,0 +1,686 @@
+---
+AWSTemplateFormatVersion: '2010-09-09'
+Description: VMs lott-be subnet
+Resources:
+  IIAPLCMDBOAPP1: 
+    Type: AWS::EC2::Instance
+    Properties: 
+      ImageId: "ami-bb9a6bc2"
+      KeyName: "rhel7.4"
+      InstanceType: "c5.xlarge"
+      NetworkInterfaces: 
+        - AssociatePublicIpAddress: "false"
+          DeviceIndex: "0"
+          PrivateIpAddress: "10.13.206.6"
+          GroupSet:
+            - !Ref LottBeSecurityGroup
+          SubnetId: !ImportValue "lott-be-subnet-id"
+      BlockDeviceMappings: 
+        - DeviceName: "/dev/sda1"
+          Ebs: 
+            VolumeType: "gp2"
+            DeleteOnTermination: "true"
+            VolumeSize: "90"
+      Tags:
+        - Key: Name
+          Value: IIAPLCMDBOAPP1
+  IIAPLCMDBOAPP2: 
+    Type: AWS::EC2::Instance
+    Properties: 
+      ImageId: "ami-bb9a6bc2"
+      KeyName: "rhel7.4"
+      InstanceType: "c5.xlarge"
+      NetworkInterfaces: 
+        - AssociatePublicIpAddress: "false"
+          DeviceIndex: "0"
+          PrivateIpAddress: "10.13.206.7"
+          GroupSet:
+            - !Ref LottBeSecurityGroup
+          SubnetId: !ImportValue "lott-be-subnet-id"
+      BlockDeviceMappings: 
+        - DeviceName: "/dev/sda1"
+          Ebs: 
+            VolumeType: "gp2"
+            DeleteOnTermination: "true"
+            VolumeSize: "98"
+      Tags:
+        - Key: Name
+          Value: IIAPLCMDBOAPP2
+  IIAPLCMDBROKER1: 
+    Type: AWS::EC2::Instance
+    Properties: 
+      ImageId: "ami-bb9a6bc2"
+      KeyName: "rhel7.4"
+      InstanceType: "t3a.xlarge"
+      NetworkInterfaces: 
+        - AssociatePublicIpAddress: "false"
+          DeviceIndex: "0"
+          PrivateIpAddress: "10.13.206.8"
+          GroupSet:
+            - !Ref LottBeSecurityGroup
+          SubnetId: !ImportValue "lott-be-subnet-id"
+      BlockDeviceMappings: 
+        - DeviceName: "/dev/sda1"
+          Ebs: 
+            VolumeType: "gp2"
+            DeleteOnTermination: "true"
+            VolumeSize: "90"
+      Tags:
+        - Key: Name
+          Value: IIAPLCMDBROKER1
+  IIAPLCMDBROKER2: 
+    Type: AWS::EC2::Instance
+    Properties: 
+      ImageId: "ami-bb9a6bc2"
+      KeyName: "rhel7.4"
+      InstanceType: "t3a.xlarge"
+      NetworkInterfaces: 
+        - AssociatePublicIpAddress: "false"
+          DeviceIndex: "0"
+          PrivateIpAddress: "10.13.206.9"
+          GroupSet:
+            - !Ref LottBeSecurityGroup
+          SubnetId: !ImportValue "lott-be-subnet-id"
+      BlockDeviceMappings: 
+        - DeviceName: "/dev/sda1"
+          Ebs: 
+            VolumeType: "gp2"
+            DeleteOnTermination: "true"
+            VolumeSize: "115"
+      Tags:
+        - Key: Name
+          Value: IIAPLCMDBROKER2
+  IIAPLCMDCONNECT1: 
+    Type: AWS::EC2::Instance
+    Properties: 
+      ImageId: "ami-bb9a6bc2"
+      KeyName: "rhel7.4"
+      InstanceType: "c5.2xlarge"
+      NetworkInterfaces: 
+        - AssociatePublicIpAddress: "false"
+          DeviceIndex: "0"
+          PrivateIpAddress: "10.13.206.10"
+          GroupSet:
+            - !Ref LottBeSecurityGroup
+          SubnetId: !ImportValue "lott-be-subnet-id"
+      BlockDeviceMappings: 
+        - DeviceName: "/dev/sda1"
+          Ebs: 
+            VolumeType: "gp2"
+            DeleteOnTermination: "true"
+            VolumeSize: "190"
+      Tags:
+        - Key: Name
+          Value: IIAPLCMDCONNECT1
+  IIAPLCMDCONNECT2: 
+    Type: AWS::EC2::Instance
+    Properties: 
+      ImageId: "ami-bb9a6bc2"
+      KeyName: "rhel7.4"
+      InstanceType: "c5.2xlarge"
+      NetworkInterfaces: 
+        - AssociatePublicIpAddress: "false"
+          DeviceIndex: "0"
+          PrivateIpAddress: "10.13.206.11"
+          GroupSet:
+            - !Ref LottBeSecurityGroup
+          SubnetId: !ImportValue "lott-be-subnet-id"
+      BlockDeviceMappings: 
+        - DeviceName: "/dev/sda1"
+          Ebs: 
+            VolumeType: "gp2"
+            DeleteOnTermination: "true"
+            VolumeSize: "90"
+      Tags:
+        - Key: Name
+          Value: IIAPLCMDCONNECT2
+  IIAPLCMDPAD1: 
+    Type: AWS::EC2::Instance
+    Properties: 
+      ImageId: "ami-bb9a6bc2"
+      KeyName: "rhel7.4"
+      InstanceType: "m5.xlarge"
+      NetworkInterfaces: 
+        - AssociatePublicIpAddress: "false"
+          DeviceIndex: "0"
+          PrivateIpAddress: "10.13.206.12"
+          GroupSet:
+            - !Ref LottBeSecurityGroup
+          SubnetId: !ImportValue "lott-be-subnet-id"
+      BlockDeviceMappings: 
+        - DeviceName: "/dev/sda1"
+          Ebs: 
+            VolumeType: "gp2"
+            DeleteOnTermination: "true"
+            VolumeSize: "90"
+      Tags:
+        - Key: Name
+          Value: IIAPLCMDPAD1
+  IIAPLCMDPAD2: 
+    Type: AWS::EC2::Instance
+    Properties: 
+      ImageId: "ami-bb9a6bc2"
+      KeyName: "rhel7.4"
+      InstanceType: "m5.xlarge"
+      NetworkInterfaces: 
+        - AssociatePublicIpAddress: "false"
+          DeviceIndex: "0"
+          PrivateIpAddress: "10.13.206.13"
+          GroupSet:
+            - !Ref LottBeSecurityGroup
+          SubnetId: !ImportValue "lott-be-subnet-id"
+      BlockDeviceMappings: 
+        - DeviceName: "/dev/sda1"
+          Ebs: 
+            VolumeType: "gp2"
+            DeleteOnTermination: "true"
+            VolumeSize: "90"
+      Tags:
+        - Key: Name
+          Value: IIAPLCMDPAD2
+  IIAPLCMDPAM1: 
+    Type: AWS::EC2::Instance
+    Properties: 
+      ImageId: "ami-bb9a6bc2"
+      KeyName: "rhel7.4"
+      InstanceType: "c5.2xlarge"
+      NetworkInterfaces: 
+        - AssociatePublicIpAddress: "false"
+          DeviceIndex: "0"
+          PrivateIpAddress: "10.13.206.14"
+          GroupSet:
+            - !Ref LottBeSecurityGroup
+          SubnetId: !ImportValue "lott-be-subnet-id"
+      BlockDeviceMappings: 
+        - DeviceName: "/dev/sda1"
+          Ebs: 
+            VolumeType: "gp2"
+            DeleteOnTermination: "true"
+            VolumeSize: "190"
+      Tags:
+        - Key: Name
+          Value: IIAPLCMDPAM1
+  IIAPLCMDPAM2: 
+    Type: AWS::EC2::Instance
+    Properties: 
+      ImageId: "ami-bb9a6bc2"
+      KeyName: "rhel7.4"
+      InstanceType: "c5.2xlarge"
+      NetworkInterfaces: 
+        - AssociatePublicIpAddress: "false"
+          DeviceIndex: "0"
+          PrivateIpAddress: "10.13.206.15"
+          GroupSet:
+            - !Ref LottBeSecurityGroup
+          SubnetId: !ImportValue "lott-be-subnet-id"
+      BlockDeviceMappings: 
+        - DeviceName: "/dev/sda1"
+          Ebs: 
+            VolumeType: "gp2"
+            DeleteOnTermination: "true"
+            VolumeSize: "190"
+      Tags:
+        - Key: Name
+          Value: IIAPLCMDPAM2
+  IIAPLGSGADM1: 
+    Type: AWS::EC2::Instance
+    Properties: 
+      ImageId: "ami-bb9a6bc2"
+      KeyName: "rhel7.4"
+      InstanceType: "t3a.large"
+      NetworkInterfaces: 
+        - AssociatePublicIpAddress: "false"
+          DeviceIndex: "0"
+          PrivateIpAddress: "10.13.206.16"
+          GroupSet:
+            - !Ref LottBeSecurityGroup
+          SubnetId: !ImportValue "lott-be-subnet-id"
+      BlockDeviceMappings: 
+        - DeviceName: "/dev/sda1"
+          Ebs: 
+            VolumeType: "gp2"
+            DeleteOnTermination: "true"
+            VolumeSize: "90"
+      Tags:
+        - Key: Name
+          Value: IIAPLGSGADM1
+  IIAPLGSGADM2: 
+    Type: AWS::EC2::Instance
+    Properties: 
+      ImageId: "ami-bb9a6bc2"
+      KeyName: "rhel7.4"
+      InstanceType: "t3a.large"
+      NetworkInterfaces: 
+        - AssociatePublicIpAddress: "false"
+          DeviceIndex: "0"
+          PrivateIpAddress: "10.13.206.17"
+          GroupSet:
+            - !Ref LottBeSecurityGroup
+          SubnetId: !ImportValue "lott-be-subnet-id"
+      BlockDeviceMappings: 
+        - DeviceName: "/dev/sda1"
+          Ebs: 
+            VolumeType: "gp2"
+            DeleteOnTermination: "true"
+            VolumeSize: "190"
+      Tags:
+        - Key: Name
+          Value: IIAPLGSGADM2
+  IIAPLPDAPP1: 
+    Type: AWS::EC2::Instance
+    Properties: 
+      ImageId: "ami-bb9a6bc2"
+      KeyName: "rhel7.4"
+      InstanceType: "c5.xlarge"
+      NetworkInterfaces: 
+        - AssociatePublicIpAddress: "false"
+          DeviceIndex: "0"
+          PrivateIpAddress: "10.13.206.18"
+          GroupSet:
+            - !Ref LottBeSecurityGroup
+          SubnetId: !ImportValue "lott-be-subnet-id"
+      BlockDeviceMappings: 
+        - DeviceName: "/dev/sda1"
+          Ebs: 
+            VolumeType: "gp2"
+            DeleteOnTermination: "true"
+            VolumeSize: "90"
+      Tags:
+        - Key: Name
+          Value: IIAPLPDAPP1
+  IIAPLPDAPP2: 
+    Type: AWS::EC2::Instance
+    Properties: 
+      ImageId: "ami-bb9a6bc2"
+      KeyName: "rhel7.4"
+      InstanceType: "c5.xlarge"
+      NetworkInterfaces: 
+        - AssociatePublicIpAddress: "false"
+          DeviceIndex: "0"
+          PrivateIpAddress: "10.13.206.19"
+          GroupSet:
+            - !Ref LottBeSecurityGroup
+          SubnetId: !ImportValue "lott-be-subnet-id"
+      BlockDeviceMappings: 
+        - DeviceName: "/dev/sda1"
+          Ebs: 
+            VolumeType: "gp2"
+            DeleteOnTermination: "true"
+            VolumeSize: "90"
+      Tags:
+        - Key: Name
+          Value: IIAPLPDAPP2
+  IIAPLPDBOAPP1: 
+    Type: AWS::EC2::Instance
+    Properties: 
+      ImageId: "ami-bb9a6bc2"
+      KeyName: "rhel7.4"
+      InstanceType: "c5.xlarge"
+      NetworkInterfaces: 
+        - AssociatePublicIpAddress: "false"
+          DeviceIndex: "0"
+          PrivateIpAddress: "10.13.206.20"
+          GroupSet:
+            - !Ref LottBeSecurityGroup
+          SubnetId: !ImportValue "lott-be-subnet-id"
+      BlockDeviceMappings: 
+        - DeviceName: "/dev/sda1"
+          Ebs: 
+            VolumeType: "gp2"
+            DeleteOnTermination: "true"
+            VolumeSize: "90"
+      Tags:
+        - Key: Name
+          Value: IIAPLPDBOAPP1
+  IIAPLPDBOAPP2: 
+    Type: AWS::EC2::Instance
+    Properties: 
+      ImageId: "ami-bb9a6bc2"
+      KeyName: "rhel7.4"
+      InstanceType: "c5.xlarge"
+      NetworkInterfaces: 
+        - AssociatePublicIpAddress: "false"
+          DeviceIndex: "0"
+          PrivateIpAddress: "10.13.206.21"
+          GroupSet:
+            - !Ref LottBeSecurityGroup
+          SubnetId: !ImportValue "lott-be-subnet-id"
+      BlockDeviceMappings: 
+        - DeviceName: "/dev/sda1"
+          Ebs: 
+            VolumeType: "gp2"
+            DeleteOnTermination: "true"
+            VolumeSize: "90"
+      Tags:
+        - Key: Name
+          Value: IIAPLPDBOAPP2
+  IIAPLPDBROKER1: 
+    Type: AWS::EC2::Instance
+    Properties: 
+      ImageId: "ami-bb9a6bc2"
+      KeyName: "rhel7.4"
+      InstanceType: "c5.xlarge"
+      NetworkInterfaces: 
+        - AssociatePublicIpAddress: "false"
+          DeviceIndex: "0"
+          PrivateIpAddress: "10.13.206.22"
+          GroupSet:
+            - !Ref LottBeSecurityGroup
+          SubnetId: !ImportValue "lott-be-subnet-id"
+      BlockDeviceMappings: 
+        - DeviceName: "/dev/sda1"
+          Ebs: 
+            VolumeType: "gp2"
+            DeleteOnTermination: "true"
+            VolumeSize: "90"
+      Tags:
+        - Key: Name
+          Value: IIAPLPDBROKER1
+  IIAPLPDBROKER2: 
+    Type: AWS::EC2::Instance
+    Properties: 
+      ImageId: "ami-bb9a6bc2"
+      KeyName: "rhel7.4"
+      InstanceType: "c5.xlarge"
+      NetworkInterfaces: 
+        - AssociatePublicIpAddress: "false"
+          DeviceIndex: "0"
+          PrivateIpAddress: "10.13.206.23"
+          GroupSet:
+            - !Ref LottBeSecurityGroup
+          SubnetId: !ImportValue "lott-be-subnet-id"
+      BlockDeviceMappings: 
+        - DeviceName: "/dev/sda1"
+          Ebs: 
+            VolumeType: "gp2"
+            DeleteOnTermination: "true"
+            VolumeSize: "90"
+      Tags:
+        - Key: Name
+          Value: IIAPLPDBROKER2
+  IIAPLPDCRM1: 
+    Type: AWS::EC2::Instance
+    Properties: 
+      ImageId: "ami-bb9a6bc2"
+      KeyName: "rhel7.4"
+      InstanceType: "c5.xlarge"
+      NetworkInterfaces: 
+        - AssociatePublicIpAddress: "false"
+          DeviceIndex: "0"
+          PrivateIpAddress: "10.13.206.24"
+          GroupSet:
+            - !Ref LottBeSecurityGroup
+          SubnetId: !ImportValue "lott-be-subnet-id"
+      BlockDeviceMappings: 
+        - DeviceName: "/dev/sda1"
+          Ebs: 
+            VolumeType: "gp2"
+            DeleteOnTermination: "true"
+            VolumeSize: "90"
+      Tags:
+        - Key: Name
+          Value: IIAPLPDCRM1
+  IIAPLPDCRM2: 
+    Type: AWS::EC2::Instance
+    Properties: 
+      ImageId: "ami-bb9a6bc2"
+      KeyName: "rhel7.4"
+      InstanceType: "c5.xlarge"
+      NetworkInterfaces: 
+        - AssociatePublicIpAddress: "false"
+          DeviceIndex: "0"
+          PrivateIpAddress: "10.13.206.25"
+          GroupSet:
+            - !Ref LottBeSecurityGroup
+          SubnetId: !ImportValue "lott-be-subnet-id"
+      BlockDeviceMappings: 
+        - DeviceName: "/dev/sda1"
+          Ebs: 
+            VolumeType: "gp2"
+            DeleteOnTermination: "true"
+            VolumeSize: "90"
+      Tags:
+        - Key: Name
+          Value: IIAPLPDCRM2
+  IIAPLPDGAME1: 
+    Type: AWS::EC2::Instance
+    Properties: 
+      ImageId: "ami-bb9a6bc2"
+      KeyName: "rhel7.4"
+      InstanceType: "c5.xlarge"
+      NetworkInterfaces: 
+        - AssociatePublicIpAddress: "false"
+          DeviceIndex: "0"
+          PrivateIpAddress: "10.13.206.26"
+          GroupSet:
+            - !Ref LottBeSecurityGroup
+          SubnetId: !ImportValue "lott-be-subnet-id"
+      BlockDeviceMappings: 
+        - DeviceName: "/dev/sda1"
+          Ebs: 
+            VolumeType: "gp2"
+            DeleteOnTermination: "true"
+            VolumeSize: "90"
+      Tags:
+        - Key: Name
+          Value: IIAPLPDGAME1
+
+  IIAPLPDGAME2: 
+    Type: AWS::EC2::Instance
+    Properties: 
+      ImageId: "ami-bb9a6bc2"
+      KeyName: "rhel7.4"
+      InstanceType: "c5.xlarge"
+      NetworkInterfaces: 
+        - AssociatePublicIpAddress: "false"
+          DeviceIndex: "0"
+          PrivateIpAddress: "10.13.206.27"
+          GroupSet:
+            - !Ref LottBeSecurityGroup
+          SubnetId: !ImportValue "lott-be-subnet-id"
+      BlockDeviceMappings: 
+        - DeviceName: "/dev/sda1"
+          Ebs: 
+            VolumeType: "gp2"
+            DeleteOnTermination: "true"
+            VolumeSize: "90"
+      Tags:
+        - Key: Name
+          Value: IIAPLPDGAME2
+
+  iiaplarte1: 
+    Type: AWS::EC2::Instance
+    Properties: 
+      ImageId: "scrivere qui"
+      KeyName: "rhel7.4"
+      InstanceType: "c5.xlarge"
+      NetworkInterfaces: 
+        - AssociatePublicIpAddress: "false"
+          DeviceIndex: "0"
+          PrivateIpAddress: "10.13.206.28"
+          GroupSet:
+            - !Ref LottBeSecurityGroup
+          SubnetId: !ImportValue "lott-be-subnet-id"
+      BlockDeviceMappings: 
+        - DeviceName: "/dev/sda1"
+          Ebs: 
+            VolumeType: "gp2"
+            DeleteOnTermination: "true"
+            VolumeSize: "135"
+        - DeviceName: "/dev/sdf"
+          Ebs: 
+            VolumeType: "gp2"
+            DeleteOnTermination: "true"
+            VolumeSize: "40"
+        - DeviceName: "/dev/sdg"
+          Ebs: 
+            VolumeType: "gp2"
+            DeleteOnTermination: "true"
+            VolumeSize: "40"
+        - DeviceName: "/dev/sdh"
+          Ebs: 
+            VolumeType: "gp2"
+            DeleteOnTermination: "true"
+            VolumeSize: "29"
+        - DeviceName: "/dev/sdi"
+          Ebs: 
+            VolumeType: "gp2"
+            DeleteOnTermination: "true"
+            VolumeSize: "29"
+        - DeviceName: "/dev/sdj"
+          Ebs: 
+            VolumeType: "gp2"
+            DeleteOnTermination: "true"
+            VolumeSize: "81"
+        - DeviceName: "/dev/sdk"
+          Ebs: 
+            VolumeType: "gp2"
+            DeleteOnTermination: "true"
+            VolumeSize: "81"
+        - DeviceName: "/dev/sdl"
+          Ebs: 
+            VolumeType: "gp2"
+            DeleteOnTermination: "true"
+            VolumeSize: "81"
+        - DeviceName: "/dev/sdm"
+          Ebs: 
+            VolumeType: "gp2"
+            DeleteOnTermination: "true"
+            VolumeSize: "81"
+        - DeviceName: "/dev/sdn"
+          Ebs: 
+            VolumeType: "gp2"
+            DeleteOnTermination: "true"
+            VolumeSize: "58"
+        - DeviceName: "/dev/sdo"
+          Ebs: 
+            VolumeType: "gp2"
+            DeleteOnTermination: "true"
+            VolumeSize: "200"
+        - DeviceName: "/dev/sdp"
+          Ebs: 
+            VolumeType: "gp2"
+            DeleteOnTermination: "true"
+            VolumeSize: "50"
+        - DeviceName: "/dev/sdq"
+          Ebs: 
+            VolumeType: "gp2"
+            DeleteOnTermination: "true"
+            VolumeSize: "50"
+        - DeviceName: "/dev/sdr"
+          Ebs: 
+            VolumeType: "gp2"
+            DeleteOnTermination: "true"
+            VolumeSize: "50"
+        - DeviceName: "/dev/sds"
+          Ebs: 
+            VolumeType: "gp2"
+            DeleteOnTermination: "true"
+            VolumeSize: "50"
+        - DeviceName: "/dev/sdt"
+          Ebs: 
+            VolumeType: "gp2"
+            DeleteOnTermination: "true"
+            VolumeSize: "30"
+        - DeviceName: "/dev/sdu"
+          Ebs: 
+            VolumeType: "gp2"
+            DeleteOnTermination: "true"
+            VolumeSize: "30"
+        - DeviceName: "/dev/sdv"
+          Ebs: 
+            VolumeType: "gp2"
+            DeleteOnTermination: "true"
+            VolumeSize: "58"
+        - DeviceName: "/dev/sdw"
+          Ebs: 
+            VolumeType: "gp2"
+            DeleteOnTermination: "true"
+            VolumeSize: "58"
+        - DeviceName: "/dev/sdx"
+          Ebs: 
+            VolumeType: "gp2"
+            DeleteOnTermination: "true"
+            VolumeSize: "50"
+      Tags:
+        - Key: Name
+          Value: iiaplarte1
+
+  LottBeSecurityGroup:
+    Type: AWS::EC2::SecurityGroup
+    Properties:
+        VpcId: !ImportValue "lottomatica-poc-VPC-id"
+        GroupDescription: Default SG for lott-be subnet
+        SecurityGroupIngress:
+        - IpProtocol: tcp
+          FromPort: 22
+          ToPort: 22
+          CidrIp: !ImportValue customer-internal-network-cidr
+        - IpProtocol: tcp
+          FromPort: 3389
+          ToPort: 3389
+          CidrIp: !ImportValue customer-internal-network-cidr
+        - IpProtocol: tcp
+          FromPort: 8480
+          ToPort: 8480
+          CidrIp: !ImportValue customer-internal-network-cidr
+        - IpProtocol: tcp
+          FromPort: 22
+          ToPort: 22
+          CidrIp: !ImportValue dev-ita-cidr
+        - IpProtocol: tcp
+          FromPort: 22
+          ToPort: 22
+          CidrIp: !ImportValue dev-us1-cidr
+        - IpProtocol: tcp
+          FromPort: 22
+          ToPort: 22
+          CidrIp: !ImportValue dev-us2-cidr
+        - IpProtocol: tcp
+          FromPort: 8080
+          ToPort: 9080
+          CidrIp: !ImportValue elb-cidr
+        - IpProtocol: tcp
+          FromPort: 80
+          ToPort: 80
+          CidrIp: !ImportValue elb-cidr
+        - IpProtocol: tcp
+          FromPort: 22
+          ToPort: 22
+          CidrIp: !ImportValue elb-cidr
+        - IpProtocol: tcp
+          FromPort: 8000
+          ToPort: 9500
+          CidrIp: !ImportValue lott-dmz-cidr
+        - IpProtocol: tcp
+          FromPort: 80
+          ToPort: 80
+          CidrIp: !ImportValue lott-dmz-cidr
+        - IpProtocol: tcp
+          FromPort: 2300
+          ToPort: 2300
+          CidrIp: !ImportValue lott-dmz-cidr
+        - IpProtocol: tcp
+          FromPort: 4500
+          ToPort: 4505
+          CidrIp: !ImportValue lott-dmz-cidr
+        - IpProtocol: tcp
+          FromPort: 23000
+          ToPort: 23080
+          CidrIp: !ImportValue lott-dmz-cidr
+        - IpProtocol: tcp
+          FromPort: 9200
+          ToPort: 9300
+          CidrIp: !ImportValue monitoring-cidr
+        - IpProtocol: tcp
+          FromPort: 5601
+          ToPort: 5601
+          CidrIp: !ImportValue monitoring-cidr
+        - IpProtocol: tcp
+          FromPort: 22
+          ToPort: 22
+          CidrIp: !ImportValue monitoring-cidr
+        - IpProtocol: icmp
+          FromPort: 8
+          ToPort: -1
+          CidrIp: !ImportValue customer-internal-network-cidr
