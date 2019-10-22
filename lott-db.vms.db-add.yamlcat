@@ -1,0 +1,299 @@
+---
+AWSTemplateFormatVersion: '2010-09-09'
+Description: VMs lott-db subnet
+Resources:
+
+  IIAPLCMDDB1: 
+    Type: AWS::EC2::Instance
+    Properties: 
+      ImageId: "scrivere qui"
+      KeyName: "rhel7.4"
+      InstanceType: "m5.2xlarge"
+      NetworkInterfaces: 
+        - AssociatePublicIpAddress: "false"
+          DeviceIndex: "0"
+          PrivateIpAddress: "10.13.206.101"
+          GroupSet:
+            - !Ref LottDBSecurityGroup
+          SubnetId: !ImportValue "lott-db-subnet-id"
+      BlockDeviceMappings: 
+        - DeviceName: "/dev/sda1"
+          Ebs: 
+            VolumeType: "gp2"
+            DeleteOnTermination: "true"
+            VolumeSize: "135"
+        - DeviceName: "/dev/sdf"
+          Ebs: 
+            VolumeType: "gp2"
+            DeleteOnTermination: "true"
+            VolumeSize: "100"
+        - DeviceName: "/dev/sdg"
+          Ebs: 
+            VolumeType: "gp2"
+            DeleteOnTermination: "true"
+            VolumeSize: "100"
+        - DeviceName: "/dev/sdh"
+          Ebs: 
+            VolumeType: "gp2"
+            DeleteOnTermination: "true"
+            VolumeSize: "100"
+        - DeviceName: "/dev/sdi"
+          Ebs: 
+            VolumeType: "gp2"
+            DeleteOnTermination: "true"
+            VolumeSize: "100"
+        - DeviceName: "/dev/sdj"
+          Ebs: 
+            VolumeType: "gp2"
+            DeleteOnTermination: "true"
+            VolumeSize: "100"
+        - DeviceName: "/dev/sdk"
+          Ebs: 
+            VolumeType: "gp2"
+            DeleteOnTermination: "true"
+            VolumeSize: "100"
+        - DeviceName: "/dev/sdl"
+          Ebs: 
+            VolumeType: "gp2"
+            DeleteOnTermination: "true"
+            VolumeSize: "100"
+        - DeviceName: "/dev/sdk"
+          Ebs: 
+            VolumeType: "gp2"
+            DeleteOnTermination: "true"
+            VolumeSize: "100"
+        - DeviceName: "/dev/sdl"
+          Ebs: 
+            VolumeType: "gp2"
+            DeleteOnTermination: "true"
+            VolumeSize: "100"
+        - DeviceName: "/dev/sdm"
+          Ebs: 
+            VolumeType: "gp2"
+            DeleteOnTermination: "true"
+            VolumeSize: "100"
+        - DeviceName: "/dev/sdn"
+          Ebs: 
+            VolumeType: "gp2"
+            DeleteOnTermination: "true"
+            VolumeSize: "50"
+        - DeviceName: "/dev/sdo"
+          Ebs: 
+            VolumeType: "gp2"
+            DeleteOnTermination: "true"
+            VolumeSize: "1000"
+        - DeviceName: "/dev/sdp"
+          Ebs: 
+            VolumeType: "gp2"
+            DeleteOnTermination: "true"
+            VolumeSize: "50"
+        - DeviceName: "/dev/sdq"
+          Ebs: 
+            VolumeType: "gp2"
+            DeleteOnTermination: "true"
+            VolumeSize: "100"
+        - DeviceName: "/dev/sdr"
+          Ebs: 
+            VolumeType: "gp2"
+            DeleteOnTermination: "true"
+            VolumeSize: "100"
+        - DeviceName: "/dev/sds"
+          Ebs: 
+            VolumeType: "gp2"
+            DeleteOnTermination: "true"
+            VolumeSize: "100"
+        - DeviceName: "/dev/sdt"
+          Ebs: 
+            VolumeType: "gp2"
+            DeleteOnTermination: "true"
+            VolumeSize: "100"
+      Tags:
+        - Key: Name
+          Value: IIAPLCMDDB1
+
+  IIAPLCMDDB2: 
+    Type: AWS::EC2::Instance
+    Properties: 
+      ImageId: "scrivere qui"
+      KeyName: "rhel7.4"
+      InstanceType: "m5.2xlarge"
+      NetworkInterfaces: 
+        - AssociatePublicIpAddress: "false"
+          DeviceIndex: "0"
+          PrivateIpAddress: "10.13.206.102"
+          GroupSet:
+            - !Ref LottDBSecurityGroup
+          SubnetId: !ImportValue "lott-db-subnet-id"
+      BlockDeviceMappings: 
+        - DeviceName: "/dev/sda1"
+          Ebs: 
+            VolumeType: "gp2"
+            DeleteOnTermination: "true"
+            VolumeSize: "135"
+        - DeviceName: "/dev/sdf"
+          Ebs: 
+            VolumeType: "gp2"
+            DeleteOnTermination: "true"
+            VolumeSize: "100"
+        - DeviceName: "/dev/sdg"
+          Ebs: 
+            VolumeType: "gp2"
+            DeleteOnTermination: "true"
+            VolumeSize: "100"
+        - DeviceName: "/dev/sdh"
+          Ebs: 
+            VolumeType: "gp2"
+            DeleteOnTermination: "true"
+            VolumeSize: "100"
+        - DeviceName: "/dev/sdi"
+          Ebs: 
+            VolumeType: "gp2"
+            DeleteOnTermination: "true"
+            VolumeSize: "100"
+        - DeviceName: "/dev/sdj"
+          Ebs: 
+            VolumeType: "gp2"
+            DeleteOnTermination: "true"
+            VolumeSize: "100"
+        - DeviceName: "/dev/sdk"
+          Ebs: 
+            VolumeType: "gp2"
+            DeleteOnTermination: "true"
+            VolumeSize: "100"
+        - DeviceName: "/dev/sdl"
+          Ebs: 
+            VolumeType: "gp2"
+            DeleteOnTermination: "true"
+            VolumeSize: "100"
+        - DeviceName: "/dev/sdk"
+          Ebs: 
+            VolumeType: "gp2"
+            DeleteOnTermination: "true"
+            VolumeSize: "100"
+        - DeviceName: "/dev/sdl"
+          Ebs: 
+            VolumeType: "gp2"
+            DeleteOnTermination: "true"
+            VolumeSize: "100"
+        - DeviceName: "/dev/sdm"
+          Ebs: 
+            VolumeType: "gp2"
+            DeleteOnTermination: "true"
+            VolumeSize: "100"
+        - DeviceName: "/dev/sdn"
+          Ebs: 
+            VolumeType: "gp2"
+            DeleteOnTermination: "true"
+            VolumeSize: "50"
+        - DeviceName: "/dev/sdo"
+          Ebs: 
+            VolumeType: "gp2"
+            DeleteOnTermination: "true"
+            VolumeSize: "1000"
+        - DeviceName: "/dev/sdp"
+          Ebs: 
+            VolumeType: "gp2"
+            DeleteOnTermination: "true"
+            VolumeSize: "50"
+        - DeviceName: "/dev/sdq"
+          Ebs: 
+            VolumeType: "gp2"
+            DeleteOnTermination: "true"
+            VolumeSize: "100"
+        - DeviceName: "/dev/sdr"
+          Ebs: 
+            VolumeType: "gp2"
+            DeleteOnTermination: "true"
+            VolumeSize: "100"
+        - DeviceName: "/dev/sds"
+          Ebs: 
+            VolumeType: "gp2"
+            DeleteOnTermination: "true"
+            VolumeSize: "100"
+        - DeviceName: "/dev/sdt"
+          Ebs: 
+            VolumeType: "gp2"
+            DeleteOnTermination: "true"
+            VolumeSize: "100"
+      Tags:
+        - Key: Name
+          Value: IIAPLCMDDB2
+
+  IIAPLGAMESDB1: 
+    Type: AWS::EC2::Instance
+    Properties: 
+      ImageId: "ami-bb9a6bc2"
+      KeyName: "rhel7.4"
+      InstanceType: "c5.xlarge"
+      NetworkInterfaces: 
+        - AssociatePublicIpAddress: "false"
+          DeviceIndex: "0"
+          PrivateIpAddress: "10.13.206.103"
+          GroupSet:
+            - !Ref LottDBSecurityGroup
+          SubnetId: !ImportValue "lott-db-subnet-id"
+      BlockDeviceMappings: 
+        - DeviceName: "/dev/sda1"
+          Ebs: 
+            VolumeType: "gp2"
+            DeleteOnTermination: "true"
+            VolumeSize: "120"
+        - DeviceName: "/dev/sdf"
+          Ebs: 
+            VolumeType: "gp2"
+            DeleteOnTermination: "true"
+            VolumeSize: "125"
+      Tags:
+        - Key: Name
+          Value: IIAPLGAMESDB1
+
+  LottDBSecurityGroup:
+    Type: AWS::EC2::SecurityGroup
+    Properties:
+        VpcId: !ImportValue "lottomatica-poc-VPC-id"
+        GroupDescription: Default SG for lott-db subnet
+        SecurityGroupIngress:
+        - IpProtocol: tcp
+          FromPort: 22
+          ToPort: 22
+          CidrIp: !ImportValue customer-internal-network-cidr
+        - IpProtocol: tcp
+          FromPort: 3389
+          ToPort: 3389
+          CidrIp: !ImportValue customer-internal-network-cidr
+        - IpProtocol: tcp
+          FromPort: 50000
+          ToPort: 60000
+          CidrIp: !ImportValue lott-be-cidr
+        - IpProtocol: tcp
+          FromPort: 60000
+          ToPort: 60000
+          CidrIp: !ImportValue pay-be-cidr
+        - IpProtocol: tcp
+          FromPort: 9200
+          ToPort: 9300
+          CidrIp: !ImportValue monitoring-cidr
+        - IpProtocol: tcp
+          FromPort: 5601
+          ToPort: 5601
+          CidrIp: !ImportValue monitoring-cidr
+        - IpProtocol: tcp
+          FromPort: 22
+          ToPort: 22
+          CidrIp: !ImportValue monitoring-cidr
+        - IpProtocol: tcp
+          FromPort: 22
+          ToPort: 22
+          CidrIp: !ImportValue dev-ita-cidr
+        - IpProtocol: tcp
+          FromPort: 22
+          ToPort: 22
+          CidrIp: !ImportValue dev-us1-cidr
+        - IpProtocol: tcp
+          FromPort: 22
+          ToPort: 22
+          CidrIp: !ImportValue dev-us2-cidr
+        - IpProtocol: icmp
+          FromPort: 8
+          ToPort: -1
+          CidrIp: !ImportValue customer-internal-network-cidr
